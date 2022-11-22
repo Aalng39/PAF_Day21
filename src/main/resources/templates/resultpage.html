@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center"><strong><span th:text="${limit}"></span> Results from "<span th:text="${query}"></span>" !</strong></h1>
+
+    <h3 th:if="${!hasResults}">No Results Found</h3>
+
+    <table>
+        <div th:each="b : ${book}">
+            <tr>
+                <td><img th:src="${b.image}" height="400px" width="280px"></td>
+                <td width="20px"></td>
+                <td style="text-align: left">
+                    <h2 style="font-size: 25px"><span th:text="${b.title}"></span></h2>        
+                    <p><span th:text="${b.description}"></span></p>
+                    <p>Rating = <span th:text="${b.rating}"></span></p>
+                </td>
+            </tr>
+        </div>
+    </table>
+
+        <!-- <div>
+            <button><a th:href="@{/page/{previouspage}(previouspage = ${previouspage})}">Previous Page</a></button>
+            <div style="float:right;">
+              <button><a th:href="@{/page/{nextpage}(nextpage = ${nextpage})}">Next page</a></button>
+            </div>
+        </div> -->
+</body>
+</html>
